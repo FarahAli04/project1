@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      background-color: #0087bd;
+      font-family: Arial, sans-serif;
+    "
+  >
+    <form
+      action="login.php"
+      method="POST"
+      id="loginForm"
+      novalidate
+      style="
+        width: 100%;
+        max-width: 350px;
+        border: 1px solid #000000;
+        padding: 40px 30px;
+        background-color: #ffffff;
+        box-shadow: 8px 8px 0px #000000;
+        position: relative;
+        border-radius: 12px;
+      "
+    >
+      <h1
+        style="
+          color: #000000;
+          margin-bottom: 30px;
+          font-size: 28px;
+          font-weight: 700;
+          text-align: center;
+        "
+      >
+        LOGIN
+      </h1>
+      <div
+        class="msg"
+        style="
+          color: #c00;
+          text-align: center;
+          margin-bottom: 15px;
+          font-weight: bold;
+        "
+      ></div>
+      <div style="margin-bottom: 20px; position: relative">
+        <label
+          for="loginEmail"
+          style="
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #000000;
+          "
+          >EMAIL</label
+        >
+        <input
+          type="email"
+          id="loginEmail"
+          name="email"
+          required
+          placeholder="your@email.com"
+          style="
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 15px;
+            border: 2px solid #000000;
+            background-color: #ffffff;
+            font-size: 16px;
+            outline: none;
+          "
+        />
+      </div>
+
+      <div style="margin-bottom: 20px; position: relative">
+        <label
+          for="loginPassword"
+          style="
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #000000;
+          "
+          >PASSWORD</label
+        >
+        <input
+          type="password"
+          name="password"
+          id="loginPassword"
+          required
+          placeholder="••••••••"
+          style="
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 15px;
+            border: 2px solid #000000;
+            background-color: #ffffff;
+            font-size: 16px;
+            outline: none;
+          "
+        />
+      </div>
+
+      <button
+        type="submit"
+        style="
+          width: 100%;
+          padding: 12px;
+          background-color: #0087bd;
+          color: #ffffff;
+          border: 2px solid #000000;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+          margin-top: 20px;
+        "
+      >
+        SIGN IN
+      </button>
+      <div style="margin-top: 20px; text-align: center; color: #000000">
+        Don't have an account?
+        <a
+          href="#"
+          onclick="
+            toggleForms();
+            return false;
+          "
+          style="color: #0087bd; text-decoration: underline"
+          >Sign up</a
+        >
+      </div>
+    </form>
+    <form
+      action="register.php"
+      method="POST"
+      id="registerForm"
+      novalidate
+      style="
+        display: none;
+        width: 100%;
+        max-width: 350px;
+        border: 1px solid #000000;
+        padding: 40px 30px;
+        background-color: #ffffff;
+        box-shadow: 8px 8px 0px #000000;
+        position: relative;
+        border-radius: 12px;
+      "
+    >
+      <h1
+        style="
+          color: #000000;
+          margin-bottom: 30px;
+          font-size: 28px;
+          font-weight: 700;
+          text-align: center;
+        "
+      >
+        REGISTER
+      </h1>
+      <div
+        class="msg"
+        style="
+          color: #c00;
+          text-align: center;
+          margin-bottom: 15px;
+          font-weight: bold;
+        "
+      ></div>
+      <div style="margin-bottom: 20px; position: relative">
+        <label
+          for="name"
+          style="
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #000000;
+          "
+          >NAME</label
+        >
+        <input
+          type="text"
+          name="name"
+          id="name"
+          required
+          placeholder="your name"
+          style="
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 15px;
+            border: 2px solid #000000;
+            background-color: #ffffff;
+            font-size: 16px;
+            outline: none;
+          "
+        />
+      </div>
+      <div style="margin-bottom: 20px; position: relative">
+        <label
+          for="regEmail"
+          style="
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #000000;
+          "
+          >EMAIL</label
+        >
+        <input
+          type="email"
+          name="email"
+          id="regEmail"
+          required
+          placeholder="your@email.com"
+          style="
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 15px;
+            border: 2px solid #000000;
+            background-color: #ffffff;
+            font-size: 16px;
+            outline: none;
+          "
+        />
+      </div>
+
+      <div style="margin-bottom: 20px; position: relative">
+        <label
+          for="regPassword"
+          style="
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #000000;
+          "
+          >PASSWORD</label
+        >
+        <input
+          type="password"
+          name="password"
+          id="regPassword"
+          required
+          placeholder="••••••••"
+          style="
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 15px;
+            border: 2px solid #000000;
+            background-color: #ffffff;
+            font-size: 16px;
+            outline: none;
+          "
+        />
+      </div>
+
+      <div style="margin-bottom: 20px; position: relative">
+        <label
+          for="confirm-password"
+          style="
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #000000;
+          "
+          >CONFIRM PASSWORD</label
+        >
+        <input
+          type="password"
+          id="confirm-password"
+          name="confirm-password"
+          required
+          placeholder="••••••••"
+          style="
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 15px;
+            border: 2px solid #000000;
+            background-color: #ffffff;
+            font-size: 16px;
+            outline: none;
+          "
+        />
+      </div>
+
+      <button
+        type="submit"
+        style="
+          width: 100%;
+          padding: 12px;
+          background-color: #0087bd;
+          color: #ffffff;
+          border: 2px solid #000000;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+          margin-top: 20px;
+        "
+      >
+        REGISTER
+      </button>
+      <div style="margin-top: 20px; text-align: center; color: #000000">
+        you already have an account?
+        <a
+          href="#"
+          onclick="
+            toggleForms();
+            return false;
+          "
+          style="color: #0087bd; text-decoration: underline"
+          >Login</a
+        >
+      </div>
+    </form>
+
+    <script>
+      // regex for email validation
+      const emailRegex = /^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+$/;
+
+      // form validation for register form
+      const regForm = document.querySelector("#registerForm");
+
+      regForm.addEventListener("submit", (e) => {
+        const errors = [];
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("regEmail").value.trim();
+        const password = document.getElementById("regPassword").value;
+        const confirmPassword =
+          document.getElementById("confirm-password").value;
+        if (name === "") errors.push("Name is empty");
+        if (email === "") errors.push("Email is empty");
+        if (password === "") errors.push("Password is empty");
+        if (confirmPassword === "") errors.push("Confirm password is empty");
+        if (email && !emailRegex.test(email))
+          errors.push("Invalid email format");
+        if (password !== confirmPassword) errors.push("Passwords do not match");
+        // ajax logic here
+
+        e.preventDefault();
+        if (errors.length) {
+          alert(errors.join("\n"));
+          return;
+        }
+        getData(regForm);
+      });
+      
+      // validation for login form
+
+      const loginForm = document.querySelector("#loginForm");
+      loginForm.addEventListener("submit", (e) => {
+        const email = document.getElementById("loginEmail").value.trim();
+        const password = document.getElementById("loginPassword").value;
+        const errors = [];
+        if (email === "") errors.push("Email is empty");
+        if (password === "") errors.push("Password is empty");
+        if (email && !emailRegex.test(email))
+          errors.push("Invalid email format");
+        e.preventDefault();
+        if (errors.length) {
+          alert(errors.join("\n"));
+          return;
+        }
+        getData(loginForm);
+      });
+
+      //toggle between login and register forms
+      function toggleForms() {
+        const forms = document.querySelectorAll("form");
+        forms.forEach((form) => {
+          form.style.display = form.style.display === "none" ? "block" : "none";
+        });
+      }
+
+      // ajax bonus
+      async function getData(form) {
+        const msg = form.querySelector(".msg");
+        msg.textContent = "";
+        try {
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+          });
+          const data = await res.json();
+          if (data.ok) {
+            const header = document.createElement("h1");
+            header.style.color = "#ffffff";
+            header.style.border = "7px solid #ffffff";
+            header.style.padding = "20px";
+            header.style.borderRadius = "12px";
+            header.textContent = "Welcome " + data.name;
+            document.body.replaceChildren(header);
+          } else {
+            msg.textContent = data.error;
+          }
+        } catch (error) {
+          msg.textContent = "An error occurred. Please try again later.";
+        }
+      }
+
+   
+    </script>
+  </body>
+</html>
